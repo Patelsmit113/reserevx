@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Hotels - Reserevx</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-category="hotel">
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><div class="logo-icon">R</div>Reserevx</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bus.html">Bus</a></li>
+        <li><a href="flight.html">Flights</a></li>
+        <li><a href="train.html">Trains</a></li>
+        <li><a href="movie.html">Movies</a></li>
+        <li><a href="hotel.html" class="active">Hotels</a></li>
+        <li><a href="event.html">Events</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="bookings.html" class="btn btn-outline btn-sm">My Bookings</a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>🏨 Hotel Booking</h1>
+      <p>Luxury to budget hotels with best deals</p>
+    </div>
+  </div>
+
+  <div class="container booking-layout">
+    <aside class="filters">
+      <h3>Search & Filters</h3>
+      <form id="search-form">
+        <div class="filter-group">
+          <label>City</label>
+          <input type="text" name="from" placeholder="City" list="cities-list">
+        </div>
+        <div class="filter-group">
+          <label>Check-in</label>
+          <input type="date" name="date">
+        </div>
+        <div class="filter-group">
+          <label>Check-out</label>
+          <input type="date" name="checkout">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Search Hotels</button>
+      </form>
+      <hr style="margin:20px 0;border:none;border-top:1px solid var(--border)">
+      <div class="filter-group">
+        <label>Sort By</label>
+        <select id="sort-by">
+          <option value="default">Recommended</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Max Price: <span id="price-label">₹20,000</span></label>
+        <input type="range" id="price-range" min="1000" max="20000" value="20000" step="500">
+      </div>
+      <div class="filter-group">
+        <label>Category</label>
+        <select id="type-filter">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      <datalist id="cities-list">
+        <option value="Mumbai"><option value="Delhi"><option value="Bangalore">
+        <option value="Pune"><option value="Jaipur"><option value="Goa">
+      </datalist>
+    </aside>
+
+    <main>
+      <div id="results-list" class="results-list"></div>
+    </main>
+  </div>
+
+  <div id="booking-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Confirm Hotel Booking</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="booking-summary" class="booking-summary"></div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="passenger-name" placeholder="Guest name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="passenger-email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" id="passenger-phone" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="form-group">
+          <label>Rooms</label>
+          <select id="passengers">
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="confirm-booking">Confirm & Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 Reserevx. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

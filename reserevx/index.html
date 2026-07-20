@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserevx - Book Bus, Flight, Train, Movie & More</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">R</div>
+        Reserevx
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="bus.html">Bus</a></li>
+        <li><a href="flight.html">Flights</a></li>
+        <li><a href="train.html">Trains</a></li>
+        <li><a href="movie.html">Movies</a></li>
+        <li><a href="hotel.html">Hotels</a></li>
+        <li><a href="event.html">Events</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="bookings.html" class="btn btn-outline btn-sm">My Bookings <span id="booking-count" style="display:none;background:var(--primary);color:white;border-radius:50%;width:20px;height:20px;font-size:0.75rem;align-items:center;justify-content:center;margin-left:4px">0</span></a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Book Everything, Anywhere</h1>
+      <p>Your one-stop platform for bus, flight, train, movie, hotel & event bookings. Fast, easy, and secure.</p>
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <div class="search-tabs">
+          <button class="search-tab active" data-category="bus">🚌 Bus</button>
+          <button class="search-tab" data-category="flight">✈️ Flight</button>
+          <button class="search-tab" data-category="train">🚂 Train</button>
+          <button class="search-tab" data-category="movie">🎬 Movie</button>
+          <button class="search-tab" data-category="hotel">🏨 Hotel</button>
+          <button class="search-tab" data-category="event">🎪 Event</button>
+        </div>
+
+        <form id="home-search-form">
+          <!-- Bus Search -->
+          <div class="search-form-panel search-form" data-category="bus" style="display:grid">
+            <div class="form-group">
+              <label>From</label>
+              <input type="text" name="from" placeholder="Departure city" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <input type="text" name="to" placeholder="Destination city" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Buses</button>
+            </div>
+          </div>
+
+          <!-- Flight Search -->
+          <div class="search-form-panel search-form" data-category="flight" style="display:none">
+            <div class="form-group">
+              <label>From</label>
+              <input type="text" name="from" placeholder="Departure city" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <input type="text" name="to" placeholder="Destination city" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Flights</button>
+            </div>
+          </div>
+
+          <!-- Train Search -->
+          <div class="search-form-panel search-form" data-category="train" style="display:none">
+            <div class="form-group">
+              <label>From</label>
+              <input type="text" name="from" placeholder="Departure station" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <input type="text" name="to" placeholder="Destination station" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Trains</button>
+            </div>
+          </div>
+
+          <!-- Movie Search -->
+          <div class="search-form-panel search-form" data-category="movie" style="display:none">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" name="from" placeholder="Your city" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Movie</label>
+              <input type="text" name="to" placeholder="Movie name (optional)">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Movies</button>
+            </div>
+          </div>
+
+          <!-- Hotel Search -->
+          <div class="search-form-panel search-form" data-category="hotel" style="display:none">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" name="from" placeholder="City" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Check-in</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>Check-out</label>
+              <input type="date" name="checkout">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Hotels</button>
+            </div>
+          </div>
+
+          <!-- Event Search -->
+          <div class="search-form-panel search-form" data-category="event" style="display:none">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" name="from" placeholder="City" list="cities-list">
+            </div>
+            <div class="form-group">
+              <label>Event Type</label>
+              <select name="to">
+                <option value="">All Events</option>
+                <option value="Concert">Concert</option>
+                <option value="Sports">Sports</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Conference">Conference</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit" class="btn btn-accent btn-block">Search Events</button>
+            </div>
+          </div>
+        </form>
+
+        <datalist id="cities-list">
+          <option value="Mumbai"><option value="Delhi"><option value="Bangalore">
+          <option value="Chennai"><option value="Kolkata"><option value="Hyderabad">
+          <option value="Pune"><option value="Jaipur"><option value="Ahmedabad">
+          <option value="Goa"><option value="Kochi"><option value="Chandigarh">
+        </datalist>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What would you like to book?</h2>
+        <p>Choose from our wide range of booking services</p>
+      </div>
+      <div class="categories-grid">
+        <a href="bus.html" class="category-card">
+          <div class="category-icon icon-bus">🚌</div>
+          <h3>Bus Tickets</h3>
+          <p>Book AC, Non-AC, Sleeper & Seater buses across India</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+        <a href="flight.html" class="category-card">
+          <div class="category-icon icon-flight">✈️</div>
+          <h3>Flight Tickets</h3>
+          <p>Domestic & international flights at best prices</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+        <a href="train.html" class="category-card">
+          <div class="category-icon icon-train">🚂</div>
+          <h3>Train Tickets</h3>
+          <p>IRCTC trains - Rajdhani, Shatabdi, Duronto & more</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+        <a href="movie.html" class="category-card">
+          <div class="category-icon icon-movie">🎬</div>
+          <h3>Movie Tickets</h3>
+          <p>Book tickets for latest movies in your city</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+        <a href="hotel.html" class="category-card">
+          <div class="category-icon icon-hotel">🏨</div>
+          <h3>Hotel Booking</h3>
+          <p>Luxury to budget hotels with best deals</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+        <a href="event.html" class="category-card">
+          <div class="category-icon icon-event">🎪</div>
+          <h3>Events & Shows</h3>
+          <p>Concerts, sports, comedy & conferences</p>
+          <span class="btn btn-outline btn-sm">Book Now →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" style="background: white">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Reserevx?</h2>
+        <p>We make booking simple, fast, and reliable</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Booking</h3>
+          <p>Book in seconds with instant confirmation and e-tickets</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <h3>Best Prices</h3>
+          <p>Compare prices and get the best deals guaranteed</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure Payments</h3>
+          <p>100% secure payment gateway with multiple options</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📱</div>
+          <h3>24/7 Support</h3>
+          <p>Round the clock customer support for all bookings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">R</div>
+            Reserevx
+          </div>
+          <p>India's trusted platform for all your booking needs. Bus, flight, train, movie, hotel & events — all in one place.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="bus.html">Bus Tickets</a></li>
+            <li><a href="flight.html">Flight Tickets</a></li>
+            <li><a href="train.html">Train Tickets</a></li>
+            <li><a href="movie.html">Movie Tickets</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul>
+            <li><a href="hotel.html">Hotels</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:support@reserevx.com">support@reserevx.com</a></li>
+            <li><a href="tel:+911800123456">1800-123-456</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Reserevx. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

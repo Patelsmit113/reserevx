@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Train Tickets - Reserevx</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-category="train">
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><div class="logo-icon">R</div>Reserevx</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bus.html">Bus</a></li>
+        <li><a href="flight.html">Flights</a></li>
+        <li><a href="train.html" class="active">Trains</a></li>
+        <li><a href="movie.html">Movies</a></li>
+        <li><a href="hotel.html">Hotels</a></li>
+        <li><a href="event.html">Events</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="bookings.html" class="btn btn-outline btn-sm">My Bookings</a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>🚂 Train Tickets</h1>
+      <p>Book IRCTC trains - Rajdhani, Shatabdi, Duronto & more</p>
+    </div>
+  </div>
+
+  <div class="container booking-layout">
+    <aside class="filters">
+      <h3>Search & Filters</h3>
+      <form id="search-form">
+        <div class="filter-group">
+          <label>From Station</label>
+          <input type="text" name="from" placeholder="Departure station" list="cities-list">
+        </div>
+        <div class="filter-group">
+          <label>To Station</label>
+          <input type="text" name="to" placeholder="Destination station" list="cities-list">
+        </div>
+        <div class="filter-group">
+          <label>Date</label>
+          <input type="date" name="date">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Search Trains</button>
+      </form>
+      <hr style="margin:20px 0;border:none;border-top:1px solid var(--border)">
+      <div class="filter-group">
+        <label>Sort By</label>
+        <select id="sort-by">
+          <option value="default">Recommended</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Max Price: <span id="price-label">₹2,500</span></label>
+        <input type="range" id="price-range" min="200" max="2500" value="2500" step="100">
+      </div>
+      <div class="filter-group">
+        <label>Class</label>
+        <select id="type-filter">
+          <option value="all">All Classes</option>
+        </select>
+      </div>
+      <datalist id="cities-list">
+        <option value="Mumbai"><option value="Delhi"><option value="Pune">
+        <option value="Jaipur"><option value="Bangalore"><option value="Chennai">
+      </datalist>
+    </aside>
+
+    <main>
+      <div id="results-list" class="results-list"></div>
+    </main>
+  </div>
+
+  <div id="booking-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Confirm Train Booking</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="booking-summary" class="booking-summary"></div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="passenger-name" placeholder="As on ID" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="passenger-email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" id="passenger-phone" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="form-group">
+          <label>Passengers</label>
+          <select id="passengers">
+            <option value="1">1 Passenger</option>
+            <option value="2">2 Passengers</option>
+            <option value="3">3 Passengers</option>
+            <option value="4">4 Passengers</option>
+            <option value="5">5 Passengers</option>
+            <option value="6">6 Passengers</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="confirm-booking">Confirm & Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 Reserevx. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>
